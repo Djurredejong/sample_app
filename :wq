@@ -1,0 +1,36 @@
+set nocompatible
+
+" If using a dark background within the editing area and syntax highlighting
+" turn on this option as well
+set background=dark
+
+" Switch to past mode
+set pastetoggle=<F2>
+
+" Change tabs to spaces
+set expandtab
+set autoindent
+set smartindent
+syntax on
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+  autocmd BufRead,BufNewFile *.rb set tabstop=2
+  autocmd BufRead,BufNewFile *.rb set shiftwidth=2
+
+  autocmd BufRead,BufNewFile *.py set tabstop=4
+  autocmd BufRead,BufNewFile *.py set shiftwidth=4
+endif
+
+if has("autocmd")
+  filetype plugin indent on
+endif
+
+" set shell=/bin/csh redraw
+" map k :w!^M:!aspell check %^M:e! %^M
+" map K ma{!} fmt -80 -c ^M `a^M
+set shell=/bin/bash
+
